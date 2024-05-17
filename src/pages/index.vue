@@ -1,8 +1,8 @@
 <template>
   <HelloWorld />
-  <AppFooter />>
+  <AppFooter />
 </template>
 
 <script setup>
-  //
+//
 </script>
