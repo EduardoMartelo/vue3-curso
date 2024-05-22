@@ -1,26 +1,31 @@
 <template>
     <div class="text-center pa-4">
-        <v-dialog v-model="props.dialog" max-width="400" persistent>
+        <v-dialog v-model="props.dialog" persistent max-width="400">
             <!-- <template v-slot:activator="{ props: activatorProps }">
                 <v-btn v-bind="activatorProps">
                     Open Dialog
                 </v-btn>
             </template> -->
 
-            <v-card prepend-icon="mdi-map-marker"
-                text="Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running."
-                title="Use Google's location service?">
-                <template v-slot:actions>
+            <v-card>
+                <v-card-title>
+                    Edit Task
+                </v-card-title>
+                <v-card-text>
+                    <v-text-field label="title"></v-text-field>
+                    <v-text-field label="description"></v-text-field>
+                </v-card-text>
+                <v-card-actions>
                     <v-spacer></v-spacer>
 
-                    <v-btn @click="$emit('toggle')">
+                    <v-btn variant="text" @click="$emit('toggle')">
                         Disagree
                     </v-btn>
 
                     <v-btn @click="$emit('toggle')">
                         Agree
                     </v-btn>
-                </template>
+                </v-card-actions>
             </v-card>
         </v-dialog>
     </div>
