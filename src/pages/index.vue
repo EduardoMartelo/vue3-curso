@@ -1,8 +1,6 @@
 <template>
-  <HelloWorld />
-  <AppFooter />>
+ <ListTasks />
 </template>
 
 <script setup>
-  //
 </script>
