@@ -2,7 +2,7 @@
   <v-text-field clearable label="Add Task" v-model="taskStore.titleTaskCreating"
     @keyup.enter="taskStore.addTask"></v-text-field>
 
-  <ListTasks :tasks="taskStore.tasks" />
+  <ListTasks />
 </template>
 
 <script setup>

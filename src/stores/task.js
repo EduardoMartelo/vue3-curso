@@ -12,7 +12,9 @@ export const useTaskStore = defineStore('task', {
                 description: "Ler a documentação Vuetify"
             }
         ],
-        titleTaskCreating: ""
+        titleTaskCreating: "",
+        showDialogDelete: false,
+        indexTaskSelected: 0
     }),
     actions: {
         addTask() {
@@ -20,6 +22,15 @@ export const useTaskStore = defineStore('task', {
                 title: this.titleTaskCreating,
             })
             this.titleTaskCreating = ""
+        },
+        toggleDelete(index) {
+            this.showDialogDelete = !this.showDialogDelete;
+            if (index != null)
+                this.indexTaskSelected = index;
+        },
+        deleteTask() {
+            this.tasks.splice(this.indexTaskSelected, 1)
+            this.toggleDelete();
         }
     }
 })
