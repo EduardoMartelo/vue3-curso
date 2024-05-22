@@ -4,11 +4,7 @@
       <!--  Navegação lateral -->
 
       <v-list>
-        <v-list-item
-          prepend-avatar=""
-          subtitle="projeto curso"
-          title="Estudos vue"
-        >
+        <v-list-item prepend-avatar="" subtitle="projeto curso" title="Estudos vue">
         </v-list-item>
       </v-list>
 
@@ -46,8 +42,8 @@ const drawer = ref(null);
 
 const items = [
   { text: "Home", icon: "mdi-folder", to: "/" },
-  { text: "Página 2", icon: "mdi-account-multiple", to: "/page2" },
-  { text: "Página 3", icon: "mdi-star", to: "/page3" },
+  // { text: "Página 2", icon: "mdi-account-multiple", to: "/page2" },
+  // { text: "Página 3", icon: "mdi-star", to: "/page3" },
 ];
 
 const admins = [

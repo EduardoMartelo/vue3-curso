@@ -12,18 +12,14 @@
                     Edit Task
                 </v-card-title>
                 <v-card-text>
-                    <v-text-field label="title"></v-text-field>
-                    <v-text-field label="description"></v-text-field>
+                    <v-text-field v-model="props.task.title" label="Title"></v-text-field>
+                    <v-text-field v-model="props.task.description" label="Description"></v-text-field>
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
 
-                    <v-btn variant="text" @click="$emit('toggle')">
-                        Disagree
-                    </v-btn>
-
-                    <v-btn @click="$emit('toggle')">
-                        Agree
+                    <v-btn color="blue-darken-1" variant="text" @click="$emit('toggle')">
+                        Ok
                     </v-btn>
                 </v-card-actions>
             </v-card>
@@ -35,7 +31,8 @@
 import { ref, defineProps } from 'vue'
 
 const props = defineProps({
-    dialog: Boolean
+    dialog: Boolean,
+    task: Object
 })
 
 </script>

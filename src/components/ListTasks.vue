@@ -53,5 +53,7 @@ const indexTaskSelected = ref(0);
 const showDialogTaskFields = ref(false);
 const toggle = (index) => {
     showDialogTaskFields.value = !showDialogTaskFields.value;
+    if (index != null)
+        indexTaskSelected.value = index;
 }
 </script>
