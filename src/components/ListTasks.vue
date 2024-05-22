@@ -1,12 +1,10 @@
 <template>
     <div>
 
-        <v-text-field clearable label="Add Task" v-model="task.title" @keyup.enter="addTask"></v-text-field>
-
         <v-list lines="three" select-strategy="classic">
             <v-list-subheader>General</v-list-subheader>
 
-            <v-list-item v-for="task, index in tasks" :key="index">
+            <v-list-item v-for="task, index in props.tasks" :key="index">
                 <template v-slot:prepend="{ isActive }">
 
                     <v-list-item-action start>
@@ -23,56 +21,37 @@
                 <template v-slot:append>
                     <v-menu>
                         <template v-slot:activator="{ props }">
-                            <v-btn color="primary" v-bind="props">
-                                Activator slot
+                            <v-btn color="grey-lighten-1" icon="mdi-pencil" variant="text" v-bind="props">
+
                             </v-btn>
                         </template>
                         <v-list>
-                            <v-list-item>
-                                <v-list-item-title>Editar</v-list-item-title>
+                            <v-list-item value="1">
+                                <v-list-item-title @click="toggle">Editar</v-list-item-title>
                             </v-list-item>
-                            <v-list-item>
+                            <v-list-item value="2">
                                 <v-list-item-title>Deletar</v-list-item-title>
                             </v-list-item>
                         </v-list>
                     </v-menu>
                 </template>
             </v-list-item>
-
-
-
-
-
         </v-list>
     </div>
+    <DialogTaskFields :dialog="showDialogTaskFields" @toggle="toggle" />
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineProps } from 'vue';
+import DialogTaskFields from './DialogTaskFields.vue';
 
-const tasks = ref([
-    {
-        title: "Estudar Vue",
-        description: "Estudar com Vuetify"
-    },
-    {
-        title: "Ler documentação",
-        description: "Ler a documentação Vuetify"
-    }
-]);
-
-const task = ref({
-    title: "",
-    description: ""
+const props = defineProps({
+    tasks: Object,
 });
-const addTask = () => {
-    tasks.value.push({
-        title: task.value.title,
-        description: task.value.description
-    })
-    task.value = {
-        title: "",
-        description: ""
-    }
+
+const showDialogTaskFields = ref(false);
+
+const toggle = () => {
+    showDialogTaskFields.value = !showDialogTaskFields.value;
 }
 </script>
